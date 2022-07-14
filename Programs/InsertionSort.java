@@ -1,39 +1,36 @@
-import java.io.*;
-import java.util.*;
+package algorithm_in_java_practice;
 
-public class Solution {
-public static void main(String[] args) {
-        // TODO Auto-generated method stub.
-    
-        Scanner sc = new Scanner(System.in);
-        int size = sc.nextInt();
-        
-        int arr[] = new int[size];
-        for(int i = 0; i < size; i++){
-            arr[i] = sc.nextInt();
-        }
-        int len = arr.length;
-        
-        InsetionSort(arr, len-1);
+public class InsertionSort {
 
-    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[] = {10, 3, 2, 6, 7, 4, 1, 8, 9, 5};
+		int len_arr = arr.length;
+		
+		//sorting using the Insertion Sort
+		InsertionSorting(arr, len_arr);
 
-    private static void InsetionSort(int[] arr, int len) {
-        // TODO Auto-generated method stub
-        int i, j, v;
-        for(i = 1; i <= len; i++) {
-            v = arr[i]; // 4
-            j = i; // 1
-            while(j >= 1 && arr[j-1] > v ) { // 9 > 4 && 1 >= 1
-                arr[j] = arr[j-1]; //arr[1] = 9  { , 9, 3, 8, 7}
-                j--;  //0
-            }
-            arr[j] = v; // 4 {4, 9, 3, 8, 7}
-        }
-        
-        for(int x = 0; x < arr.length; x++) {
-            System.out.print(arr[x] + " ");
-        }
-        
-    }
+	}
+
+	private static void InsertionSorting(int[] arr, int len_arr) {
+		// TODO Auto-generated method stub
+		int i, j, val;
+		
+		for(i = 1; i < len_arr; i++) {
+			val = arr[i];
+			j = i;
+			
+			while(j >= 1 && arr[j-1] > val) {
+				arr[j] = arr[j-1];
+				j--;
+			}
+			arr[j] = val;
+		}
+		
+		//printing an array
+		for(int x = 0; x < len_arr; x++) {
+			System.out.print(arr[x] + " ");
+		}
+	}
+
 }
